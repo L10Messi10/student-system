@@ -1,0 +1,195 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #66ea92 0%, #4b9fa2 100%);
+    color: #fff;
+    transition: all 0.3s;
+    position: fixed;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    margin-left: -250px;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.sidebar-header button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.sidebar ul.components {
+    padding: 20px 0;
+}
+
+.sidebar ul li a {
+    padding: 15px 20px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar ul ul a {
+    font-size: 0.9rem !important;
+    padding-left: 40px !important;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.content {
+    width: 100%;
+    padding: 20px;
+    margin-left: 250px;
+    transition: all 0.3s;
+    min-height: 100vh;
+}
+
+.content.active {
+    margin-left: 0;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #66ea92 0%, #4b9fa2 100%);
+    color: white;
+}
+
+.stat-card .card-body {
+    padding: 1.5rem;
+}
+
+.stat-card i {
+    font-size: 2rem;
+    opacity: 0.8;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #66ea92 0%, #4b9fa2 100%) !important;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #66ea92 0%, #4b9fa2 100%);
+}
+
+.table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: linear-gradient(135deg, #66ea92 0%, #4b9fa2 100%);
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        margin-left: -250px;
+    }
+
+    .sidebar.active {
+        margin-left: 0;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}
+
+/* Add to style.css */
+.sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #66ea92 0%, #4b9fa2 100%);
+    color: #fff;
+    transition: all 0.3s;
+    position: fixed;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    margin-left: -220px;
+    /* Leave 30px visible */
+}
+
+/* Adjust the collapse button to always be visible */
+.sidebar-header {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.sidebar-header button {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
