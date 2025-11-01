@@ -140,29 +140,24 @@ class StudentLogic
     }
 
     public function searchStudents($keyword)
-    {
-        try {
-            $sql = "SELECT * FROM Students 
-                WHERE student_id LIKE :kw1 
-                OR first_name LIKE :kw2 
-                OR last_name LIKE :kw3 
-                OR email LIKE :kw4 
-                OR course LIKE :kw5 
+{
+    try {
+        $searchTerm = "%{$keyword}%";
+        $sql = "SELECT * FROM Students 
+                WHERE student_id LIKE ? 
+                OR first_name LIKE ? 
+                OR last_name LIKE ? 
+                OR email LIKE ? 
+                OR course LIKE ?
                 ORDER BY last_name, first_name";
 
-            $searchTerm = "%{$keyword}%";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':kw1', $searchTerm);
-            $stmt->bindParam(':kw2', $searchTerm);
-            $stmt->bindParam(':kw3', $searchTerm);
-            $stmt->bindParam(':kw4', $searchTerm);
-            $stmt->bindParam(':kw5', $searchTerm);
-            $stmt->execute();
-
-            return $stmt->fetchAll();
-        } catch (PDOException $e) {
-            throw new Exception("Error searching students: " . $e->getMessage());
-        }
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$searchTerm, $searchTerm, $searchTerm, $searchTerm, $searchTerm]);
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        throw new Exception("Error searching students: " . $e->getMessage());
     }
+}
+
 
 }
