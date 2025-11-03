@@ -1,6 +1,6 @@
 {
-  "serverName": "LIO",
+  "serverName": "YOUR_SQL_SERVER_INSTANCE",
   "database": "StudentSystem",
   "uid": "sa",
-  "pwd": "Administrator01"
+  "pwd": "YOUR_PASSWORD"
 }
